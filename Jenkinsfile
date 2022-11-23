@@ -31,6 +31,7 @@ pipeline {
      steps{
          script {
              sshagent(credentials : ['aws_ec2'])
+             {
                 sh 'ssh -t -t ubuntu@10.0.2.52 -o StrictHostKeyChecking=no "docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 634017475023.dkr.ecr.us-east-1.amazonaws.com && docker run -d -p 8080:8081 --rm --name nodeapp 972078203001.dkr.ecr.us-east-1.amazonaws.com/projectfinalrepo:latest"''
             }
       }
