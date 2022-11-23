@@ -33,7 +33,7 @@ pipeline {
          script {
              sshagent(credentials : ["63336fb5-acd2-474a-9a91-b63ae59aaddc"]){
 
-                sh 'ssh -t -t ubuntu@10.0.2.52 -o StrictHostKeyChecking=no "docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 972078203001.dkr.ecr.us-east-1.amazonaws.com && docker run -d -p 8080:8081 --rm --name nodeapp 972078203001.dkr.ecr.us-east-1.amazonaws.com"'
+                sh 'ssh -t -t ubuntu@10.0.2.52 -o StrictHostKeyChecking=no "docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 972078203001.dkr.ecr.us-east-1.amazonaws.com && docker run -d -p 8080:8081 --rm --name nodeapp 972078203001.dkr.ecr.us-east-1.amazonaws.com/projectfinalrepo:latest"'
 
              }
                 
